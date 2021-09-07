@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paths",
+  "info": {
+    "name": "Path",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "title"
+    },
+    "abilities": {
+      "via": "path",
+      "collection": "ability"
+    },
+    "class": {
+      "via": "paths",
+      "model": "class"
+    }
+  }
+}

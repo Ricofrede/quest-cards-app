@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_utils_effects",
+  "info": {
+    "name": "Effect",
+    "icon": "fire-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cost": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
