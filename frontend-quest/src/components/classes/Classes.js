@@ -1,26 +1,33 @@
 import React from 'react'
-import { useState , useEffect } from 'react'
+import { useState } from 'react'
+import { useQuery,gql } from "@apollo/client";
+import SingleClass from '../singleClass/SingleClass';
+
+const CLASSES_TITLES = gql`
+  query GetClassesTitles {
+    classes{
+      id
+      title
+      slug
+    }
+  }
+`;
 
 export default function Classes() {
-    const [classes , setClasses ] = useState(null)
-    useEffect(() => {
-        fetch('http://localhost:1337/classes',{
-            method: 'GET',
-            mode: 'cors',
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json'
-              },
-        })
-            .then(res => res.json())
-            .then(data => setClasses(data))
+    const [classSlug , setClassSlug ] = useState(null)
+    const { loading, error, data } = useQuery(CLASSES_TITLES)
 
-        return () => {}
-    }, [])
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error.message}</p>;
 
     return (
         <div>
-            {classes && <p>{JSON.stringify(classes)}</p>}
+            <nav className="nav">
+            {data && data.classes && data.classes.map(clas => {
+                return <a key={clas.id} className="nav-link" href="#" onClick={() => setClassSlug(clas.slug)}>{clas.title}</a> // eslint-disable-line
+            })}
+            </nav>
+            {classSlug && <SingleClass slug={classSlug}/>}
         </div>
     )
 }

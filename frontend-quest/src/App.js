@@ -3,8 +3,8 @@ import Classes from './components/classes/Classes';
 
 function App() {
   return (
-    <div className="App">
-      <Classes />
+    <div className="App">  
+        <Classes />  
     </div>
   );
 }

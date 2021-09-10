@@ -37,6 +37,8 @@ services:
       - ./frontend-quest:/frontend
     ports:
       - 3000:3000
+    links:
+      - "strapi:strapi"
     depends_on:
       - strapi
 
