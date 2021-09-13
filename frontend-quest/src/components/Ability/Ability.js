@@ -1,6 +1,8 @@
-import React from 'react'
+import React , {useContext} from 'react'
 import { useQuery,gql } from "@apollo/client";
 import ReactMarkdown from 'react-markdown'
+import { OpenAbility } from '../singleClass/SingleClass'; 
+
 
 const ABILITY = gql`
   query GetAbility($slug: String) {
@@ -17,16 +19,17 @@ const ABILITY = gql`
   }
 `;
 
-export default function Ability({slug}) {
+export default function Ability() {
+    const choosenAbility = useContext(OpenAbility)
     const { loading, error, data } = useQuery(ABILITY, {
-        variables: { slug }
+        variables: { slug: choosenAbility.ability }
     })
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error.message}</p>;
 
     return (
-        <div>
+        <>
             {data && data.abilities && <div>
                 <h3>{data.abilities[0].title}</h3>
                 {data.abilities[0].description && <ReactMarkdown>
@@ -36,14 +39,14 @@ export default function Ability({slug}) {
                 <ul>
                     {data.abilities[0].Effect && data.abilities[0].Effect.map(eff => {
                         return(
-                            <li key={eff.id}>
-                                <h5>Cost: {eff.cost}</h5>
+                            <li key={eff.id} className="effects-li">
+                                <span className="h5"><b>{eff.cost}</b> </span>
                                 <ReactMarkdown>{eff.description}</ReactMarkdown>
                             </li>
                         )
                     })}
                 </ul>
             </div>}
-        </div>
+        </>
     )
 }

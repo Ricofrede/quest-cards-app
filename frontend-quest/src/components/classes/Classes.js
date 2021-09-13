@@ -4,8 +4,8 @@ import { useQuery,gql } from "@apollo/client";
 import SingleClass from '../singleClass/SingleClass';
 
 const CLASSES_TITLES = gql`
-  query GetClassesTitles {
-    classes{
+  query GetClassesTitles($lang: String) {
+    classes(where: {language: $lang}){
       id
       title
       slug
@@ -13,21 +13,25 @@ const CLASSES_TITLES = gql`
   }
 `;
 
-export default function Classes() {
+export default function Classes({lang}) {
     const [classSlug , setClassSlug ] = useState(null)
-    const { loading, error, data } = useQuery(CLASSES_TITLES)
+    const { loading, error, data } = useQuery(CLASSES_TITLES , {
+      variables: { lang }
+    })
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error.message}</p>;
 
     return (
-        <div>
+        <>
+          <div className="container classes-nav">
             <nav className="nav">
             {data && data.classes && data.classes.map(clas => {
-                return <a key={clas.id} className="nav-link" href="#" onClick={() => setClassSlug(clas.slug)}>{clas.title}</a> // eslint-disable-line
+                return <a key={clas.id} className={"nav-link " + (clas.slug === classSlug ? 'active' : '')} href="javascript:void(0)" onClick={() => setClassSlug(clas.slug)}>{clas.title}</a> // eslint-disable-line
             })}
             </nav>
-            {classSlug && <SingleClass slug={classSlug}/>}
-        </div>
+          </div>
+          {classSlug && <SingleClass slug={classSlug}/>}
+        </>
     )
 }
