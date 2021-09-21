@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_utils_label_translations",
+  "info": {
+    "name": "LabelTranslation",
+    "icon": "atlas",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "translation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "utils.translation"
+    }
+  }
+}

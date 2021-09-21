@@ -11,7 +11,7 @@ import {
 } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: 'http://localhost:1337/graphql',
+  uri: 'https://quest-app-admin.herokuapp.com/graphql',
   cache: new InMemoryCache()
 });
 

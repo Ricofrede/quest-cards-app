@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "portuguese_translations",
+  "info": {
+    "name": "PortugueseTranslation"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LabelTranslation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utils.label-translation"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/portuguese-translation",
+      "handler": "portuguese-translation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/portuguese-translation",
+      "handler": "portuguese-translation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/portuguese-translation",
+      "handler": "portuguese-translation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

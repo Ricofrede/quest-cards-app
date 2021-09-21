@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_utils_translations",
+  "info": {
+    "name": "translation",
+    "icon": "digital-tachograph"
+  },
+  "options": {},
+  "attributes": {
+    "en": {
+      "type": "text"
+    },
+    "pt_BR": {
+      "type": "text"
+    }
+  }
+}
