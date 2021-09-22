@@ -27,11 +27,11 @@ const QUERY_ALL = gql`
             cost
           }
         }
-        paths{
+        paths (sort: "createdAt"){
           title
           slug
           id
-          abilities{
+          abilities (sort: "order_in_path"){
             id
             slug
             title
