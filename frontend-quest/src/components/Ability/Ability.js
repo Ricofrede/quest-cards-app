@@ -16,7 +16,7 @@ export default function Ability({ability,labels}) {
                     {ability.Effect && ability.Effect.map(eff => {
                         return(
                             <li key={eff.id} className="effects-li">
-                                <span className="h5"><b>{eff.cost}</b> </span>
+                                <span className="h5"><b>{(eff.cost || (eff.cost === 0)) ? eff.cost : 'x'}</b> </span>
                                 <ReactMarkdown>{eff.description}</ReactMarkdown>
                             </li>
                         )

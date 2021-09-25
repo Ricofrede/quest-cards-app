@@ -47,7 +47,7 @@ export default function SingleClass({selected, labels}) {
                                 if (selected.quick_start.indexOf(qs) === (selected.quick_start.length - 1)){
                                     addStr = ''
                                 }
-                                return <span key={qs.id}><button onClick={() => handleQuickStart(qs)}>{qs.title}</button>{addStr}</span>
+                                return <span key={qs.slug}><button onClick={() => handleQuickStart(qs)}>{qs.title}</button>{addStr}</span>
                             })}</p>
                         </div>
                     </div>

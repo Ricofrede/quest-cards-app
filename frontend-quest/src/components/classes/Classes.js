@@ -10,7 +10,7 @@ export default function Classes({classes, labels}) {
           <div className="container classes-nav justify-content-center">
               <nav className="nav justify-content-center">
                 {classes && classes.map(clas => {
-                    return <button key={clas.id} className={"nav-link " + (clas.slug === selected.slug ? 'active' : '')} onClick={() => setSelected(clas)}>{clas.title}</button> // eslint-disable-line
+                    return <button key={clas.slug} className={"nav-link " + (clas.slug === selected.slug ? 'active' : '')} onClick={() => setSelected(clas)}>{clas.title}</button> // eslint-disable-line
                 })}
               </nav>
           </div>
