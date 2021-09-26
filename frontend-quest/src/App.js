@@ -3,19 +3,18 @@ import { useState } from 'react'
 import { useQuery,gql } from "@apollo/client";
 import Logo from './assets/images/questlogowhite.png'
 import loadGif from './assets/images/load.gif'
+import questExport from './assets/quest-export.json'
 
 const QUERY_ALL = gql`
   query getAll
     {
       classes{
-        id
         slug
         title
         description
         image
         language
         quick_start{
-          id
           slug
           title
           order_in_path
@@ -30,9 +29,7 @@ const QUERY_ALL = gql`
         paths (sort: "createdAt"){
           title
           slug
-          id
           abilities (sort: "order_in_path"){
-            id
             slug
             title
             order_in_path
@@ -60,7 +57,10 @@ const QUERY_ALL = gql`
 
 function App() {
   const [ lang , setLang ] = useState(null)
-  const { loading, error, data } = useQuery(QUERY_ALL)
+
+  // Use backend data for development
+  // ############################################ - DEV-START
+  /* const { loading, error, data } = useQuery(QUERY_ALL)
 
   if (loading) {
     return (
@@ -73,8 +73,14 @@ function App() {
   ;}
 
 
-  if (error) return <p>{error.message}</p>;
+  if (error) return <p>{error.message}</p>; */
+  // ############################################ - DEV-END
 
+
+  // Use static data for production
+  // ############################################ - PROD-START
+  const data = questExport
+  // ############################################ - PROD-END
 
   const dictionary = {}
   if (lang && data && data.portugueseTranslation){
