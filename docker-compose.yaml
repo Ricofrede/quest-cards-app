@@ -4,13 +4,14 @@ services:
   strapi:
     container_name: quest-app-backend
     image: strapi/strapi:3.6.8-node14-alpine
+    env_file: .env
     environment:
-      DATABASE_CLIENT: 
-      DATABASE_NAME: 
-      DATABASE_HOST: 
-      DATABASE_PORT: 
-      DATABASE_USERNAME: 
-      DATABASE_PASSWORD: 
+        DATABASE_CLIENT: ${DATABASE_CLIENT}
+        DATABASE_NAME: ${DATABASE_NAME}
+        DATABASE_HOST: ${DATABASE_HOST}
+        DATABASE_PORT: ${DATABASE_PORT}
+        DATABASE_USERNAME: ${DATABASE_USERNAME}
+        DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
       - ./backend-quest:/srv/app
     ports:

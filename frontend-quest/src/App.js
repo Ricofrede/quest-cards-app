@@ -1,7 +1,9 @@
-import Classes from './components/classes/Classes';
+import Menu from './components/Menu/Menu';
 import { useState } from 'react'
 import { useQuery,gql } from "@apollo/client";
 import Logo from './assets/images/questlogowhite.png'
+import brFlag from './assets/images/br-flag.png'
+import usFlag from './assets/images/us-flag.png'
 import loadGif from './assets/images/load.gif'
 import questExport from './assets/quest-export.json'
 
@@ -72,7 +74,6 @@ function App() {
   )
   ;}
 
-
   if (error) return <p>{error.message}</p>; */
   // ############################################ - DEV-END
 
@@ -102,15 +103,19 @@ function App() {
         {!lang && <div className="container justify-content-center lang-choose">
             <div>
               <figure>
-                <img src={Logo} alt=''></img>
+                <img src={Logo} alt='Quest RPG Logo'></img>
               </figure>
             </div>
             <div className="nav justify-content-center">
-              <button className="nav-link" onClick={() => setLang('en')}>EN</button>
-              <button className="nav-link" onClick={() => setLang('pt_BR')}>PT-BR</button>
+              <button className="nav-link" onClick={() => setLang('en')}>
+                <img className="img-lang" src={usFlag} alt='English'/>
+              </button>
+              <button className="nav-link" onClick={() => setLang('pt_BR')}>
+                <img className="img-lang" src={brFlag} alt='Portugues'/>
+              </button>
             </div>
           </div>}
-        {lang && <Classes classes={classes} labels={dictionary}/>}  
+        {lang && <Menu classes={classes} labels={dictionary}/>}  
     </div>
   );
 }

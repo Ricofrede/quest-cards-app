@@ -25,6 +25,29 @@ body {
   margin-top: 40px;
 }
 
+.main-menu{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  margin: -10px 0px 0px -190px;
+  width: max-content
+}
+
+.main-menu img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.main-menu nav{
+  display: block;
+}
+
+.main-menu .nav-link{
+  font-size: 1.2em;
+  margin: 0 auto 10px auto;
+}
+
 i.order-path{
   color: rgb(95, 94, 94)
 }
@@ -37,11 +60,23 @@ span.roll-dice{
   padding-right: 20px;
 }
 
+.lang-choose{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin: -10px 0px 0px -190px;
+  width: max-content
+}
+
 .lang-choose img{
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+.lang-choose .img-lang{
+  margin-top: 0;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -164,4 +199,31 @@ button:hover {
   background-color: #ffd700;
   color: black;
   box-shadow: 0px 0px 2px 2px #ffffff;
+}
+
+.home-btn{
+  background-color: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.home-btn button{
+  background-color: black;
+  color: black;
+  border-radius: 50px;
+}
+
+.home-btn button:hover{
+  background-color: black;
+  color: black;
+  border-radius: 50px;
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
+.wip-page{
+  position: absolute;
+  top: 20%;
+  left: 10%;
 }
