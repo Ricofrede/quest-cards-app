@@ -1,17 +1,30 @@
 import React from 'react'
 import Classes from '../classes/Classes';
 import TextPage from '../TextPage/TextPage'
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import Logo from '../../assets/images/questlogowhite.png'
 import Home from '../../assets/images/home.png'
 
 
-export default function Menu({classes, labels}) {
+export default function Menu({classes, pages, labels}) {
     const [menuItem , setMenuItem] = useState(null)
+    const [selectedPage , setSelectedPage] = useState(null)
+
+    useEffect(() => {
+        for (const pag of pages){
+            if (String(pag.slug).startsWith(menuItem)){
+                setSelectedPage(pag)
+            }
+        }
+    }, [menuItem, pages])
+
     return (
         <div>
             {menuItem && <div className="home-btn">
-                <button onClick={() => setMenuItem(null)}>
+                <button onClick={() => {
+                    setMenuItem(null)
+                    setSelectedPage(null)
+                }}>
                     <img src={Home} alt='Home Button'></img>
                 </button>
             </div>}
@@ -29,7 +42,7 @@ export default function Menu({classes, labels}) {
                     <button className="nav-link" onClick={() => setMenuItem('credits')}>{labels.credits}</button>
                 </nav>
             </div>}
-            {menuItem && (menuItem !== 'roles') && <TextPage content={menuItem} labels={labels}/>}
+            {menuItem && (menuItem !== 'roles') && selectedPage && <TextPage content={selectedPage} labels={labels}/>}
             {(menuItem === 'roles') && <Classes classes={classes} labels={labels}/>}  
         </div>
     )

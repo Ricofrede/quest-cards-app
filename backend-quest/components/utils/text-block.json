@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_utils_text_blocks",
+  "info": {
+    "name": "text_block",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "string"
+    }
+  }
+}

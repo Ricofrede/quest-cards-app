@@ -49,6 +49,16 @@ query getAll
         }
       }
     }
+    textPages{
+      slug
+      title
+      language
+      content{
+        id
+        text
+        image
+      }
+    }
   }
 `
 

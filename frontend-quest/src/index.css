@@ -222,8 +222,19 @@ button:hover {
   filter: invert(1);
 }
 
-.wip-page{
-  position: absolute;
-  top: 20%;
-  left: 10%;
+.text-page{
+  margin-top: 40px;
+}
+
+.text-page h2{
+  color: rgb(212, 211, 211);
+}
+
+.text-page h3{
+  color: rgb(136, 136, 136);
+}
+
+.text-page a{
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

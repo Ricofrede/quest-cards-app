@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "text_pages",
+  "info": {
+    "name": "text_page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "pt_BR"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "utils.text-block"
+    }
+  }
+}

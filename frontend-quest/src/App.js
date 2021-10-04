@@ -54,6 +54,16 @@ const QUERY_ALL = gql`
           }
         }
       }
+      textPages{
+        slug
+        title
+        language
+        content{
+          id
+          text
+          image
+        }
+      }
     }
 `
 
@@ -98,6 +108,13 @@ function App() {
     return false
   }).filter(Boolean)
 
+  const pages = lang && data && data.textPages && data.textPages.map(pag => {
+    if(pag.language === lang){
+      return pag
+    }
+    return false
+  }).filter(Boolean)
+
   return (
     <div className="App">
         {!lang && <div className="container justify-content-center lang-choose">
@@ -115,7 +132,7 @@ function App() {
               </button>
             </div>
           </div>}
-        {lang && <Menu classes={classes} labels={dictionary}/>}  
+        {lang && <Menu classes={classes} pages={pages} labels={dictionary}/>}  
     </div>
   );
 }
