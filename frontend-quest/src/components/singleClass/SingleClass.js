@@ -47,15 +47,15 @@ export default function SingleClass({selected, labels}) {
                                 if (selected.quick_start.indexOf(qs) === (selected.quick_start.length - 1)){
                                     addStr = ''
                                 }
-                                return <span key={qs.slug}><button onClick={() => handleQuickStart(qs)}>{qs.title}</button>{addStr}</span>
+                                return <span key={qs.slug}><button className="btn-quickstart" onClick={() => handleQuickStart(qs)}>{qs.title}</button>{addStr}</span>
                             })}</p>
                         </div>
                     </div>
                 </div>
                 <div className="container">
                     <div className="row">
-                        <h5 className="col-4">{labels.paths}:</h5>
-                        <div className="nav col-8 justify-content-center">
+                        <h5 className="col-md-4">{labels.paths}:</h5>
+                        <div className="nav col-md-8 justify-content-center">
                             {selected.paths && selected.paths.map(pth => {
                                 return <div key={pth.slug} className="nav-item">
                                     <button className={"nav-link " + (pth.slug === path.slug ? 'active' : '') + ' ' + (isLegendary(pth.slug) ? 'legendary' : '')} onClick={() => setPath(pth)}>

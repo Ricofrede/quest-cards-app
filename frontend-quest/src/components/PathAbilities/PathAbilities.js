@@ -16,8 +16,8 @@ export default function PathAbilities({path,qsAbility,labels}) {
         <>
             <div className="container">
                 {path && <div className="row">
-                    <h5 className="col-4">'{path.title}' {labels.path_abilities}:</h5>
-                    <div className="nav col-8 justify-content-center">
+                    <h5 className="col-md-4">'{path.title}' {labels.path_abilities}:</h5>
+                    <div className="nav col-md-8 justify-content-center">
                         {path.abilities && path.abilities.map(abil => {
                                 return <div key={abil.slug} className="nav-item">
                                     <button className={"nav-link " + (abil.slug === ability.slug ? 'active' : '')} onClick={() => setAbility(abil)}>
