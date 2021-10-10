@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "quest-cards"
+  },
+  "targets": {
+    "quest-cards": {
+      "hosting": {
+        "questguide": [
+          "questguide"
+        ]
+      }
+    }
   }
 }

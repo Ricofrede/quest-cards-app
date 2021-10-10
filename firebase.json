@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "questguide",
     "public": "frontend-quest/build",
     "ignore": [
       "firebase.json",
